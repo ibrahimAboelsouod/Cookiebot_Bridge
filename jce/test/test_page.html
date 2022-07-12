@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>JENTIS Consent Engine Test</title>
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="400dcebb-881a-4add-8eeb-0f2c339d67f1" type="text/javascript" async></script>
+    <script src="./test_helper_framework.js"></script>
+    
+    <!-- JENTIS CONSENT ENGINE API - Events -->
+    <script>
+        document.addEventListener('jentis.consent.engine.minimal-consent-given', function (e) {
+            console.log("Minimal Consent is given: %o", e.detail);
+        });
+        document.addEventListener('jentis.consent.engine.no-consent-given', function (e) {
+            console.log("No Consent is given: %o", e.detail);
+        });
+        document.addEventListener('jentis.consent.engine.send-consent-data', function (e) {
+            console.log("SEND Consent to Server: %o", e.detail);
+            console.time(e);
+            console.timeEnd(e);
+            
+        });
+        document.addEventListener('jentis.consent.engine.show-bar', function (e) {
+            console.log("Show Bar now: %o", e.detail);
+        });
+
+        document.addEventListener('jentis.consent.engine.vendor-change', function (e) {
+            console.log("Vendor Changed: %o", e.detail);
+        });
+
+        document.addEventListener('jentis.consent.engine.vendor-add', function (e) {
+            console.log("Vendor Add: %o", e.detail);
+        });
+
+        document.addEventListener('jentis.consent.engine.init', function (e) {
+            console.log("CMP Init: %o", e.detail);
+        });
+
+    </script>
+
+    <script src="./test_conf.js"></script>
+    <script src="../JentisConsentEngine.js"></script>
+    <script src="./cookiebot_Bridge.js"></script>
+
+
+</head>
+<body>   
+
+<h1>Cookiebot Bridge</h1>
+
+</body>
+</html>

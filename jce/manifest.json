@@ -1,0 +1,15 @@
+{
+  "head": {
+    "id": "jentis.core.cmp.plugin.consentengine",
+    "type": "plugin",
+    "name": "Consent engine",
+    "description": "",
+    "version": "2.1.3",
+    "author": "JENTIS GmbH",
+    "publishdate": "08.05.2021"
+  },
+  "plugin": {
+    "plugin-slot": "jentis.core.cmp.plugin.addconsentengine"
+  },
+  "value": "(!code:start)(!include:/JentisConsentEngine.js)(!code:end)"
+}
