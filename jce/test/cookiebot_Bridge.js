@@ -5,6 +5,7 @@ let vendorsConsents = {};
 function CookiebotCallback_OnLoad(){
     CookiebotCallback_OnAccept()
     CookiebotCallback_OnDecline()
+    sendToJseServer()
 }
 
 // The asynchronous callback is triggered when the user clicks the accept-button of the cookie consent dialog and whenever a consented user loads a page.
@@ -13,8 +14,6 @@ function CookiebotCallback_OnAccept() {
     if (Cookiebot.consent.statistics)      enableStatisticsCookies();
     if (Cookiebot.consent.marketing)       enableMarketingCookies();
     if (Cookiebot.consent.preferences)     enablePreferencesCookies();
-
-    jentis.consent.engine.setNewVendorConsents(vendorsConsents);
 }
 
 
@@ -24,7 +23,11 @@ function CookiebotCallback_OnDecline(){
     if (!Cookiebot.consent.statistics)     disableStatisticsCookies();
     if (!Cookiebot.consent.marketing)      disableMarketingCookies();
     if (!Cookiebot.consent.preferences)    disablePreferencesCookies();   
+    
+}
 
+// Send the concent data to jse server
+function sendToJseServer(){
     jentis.consent.engine.setNewVendorConsents(vendorsConsents);
 }
 
