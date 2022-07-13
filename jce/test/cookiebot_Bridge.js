@@ -3,9 +3,9 @@ let vendorsConsents = {};
 
 // The asynchronous callback is triggered when the cookie banner has loaded to get the user's consent.
 function CookiebotCallback_OnLoad(){
-    CookiebotCallback_OnAccept()
-    CookiebotCallback_OnDecline()
-    sendToJseServer()
+    CookiebotCallback_OnAccept();
+    CookiebotCallback_OnDecline();
+    sendToJseServer();
 }
 
 // The asynchronous callback is triggered when the user clicks the accept-button of the cookie consent dialog and whenever a consented user loads a page.
@@ -40,24 +40,24 @@ function CookiebotCallback_OnDialogInit(){
 // Statistics
 function enableStatisticsCookies() {  
     Object.entries(vendors).forEach(
-        ([key, value]) => {      
-            if(value.category.id === "statistic") vendorsConsents[`${key}`] = true;
+        ([vendorName, VendorValues]) => {      
+            if(VendorValues.category.id === "statistic") vendorsConsents[`${vendorName}`] = true;
         }
     );
 }
 // Marketing
 function enableMarketingCookies() {  
     Object.entries(vendors).forEach(
-        ([key, value]) => {
-            if(value.category.id === "marketing") vendorsConsents[`${key}`] = true;
+        ([vendorName, VendorValues]) => {
+            if(VendorValues.category.id === "marketing") vendorsConsents[`${vendorName}`] = true;
         }
     );
 }
 // Preferences
 function enablePreferencesCookies() {  
     Object.entries(vendors).forEach(
-        ([key, value]) => {
-            if(value.category.id === "preferences") vendorsConsents[`${key}`] = true;
+        ([vendorName, VendorValues]) => {
+            if(VendorValues.category.id === "preferences") vendorsConsents[`${vendorName}`] = true;
         }
     );
 }
@@ -66,24 +66,24 @@ function enablePreferencesCookies() {
 //Statistics 
 function disableStatisticsCookies() {  
     Object.entries(vendors).forEach(
-        ([key, value]) => {
-            if(value.category.id === "statistic") vendorsConsents[`${key}`] = false;
+        ([vendorName, VendorValues]) => {
+            if(VendorValues.category.id === "statistic") vendorsConsents[`${vendorName}`] = false;
         }
     );
 }
 // Marketing
 function disableMarketingCookies() {  
     Object.entries(vendors).forEach(
-        ([key, value]) => {
-            if(value.category.id === "marketing") vendorsConsents[`${key}`] = false;
+        ([vendorName, VendorValues]) => {
+            if(VendorValues.category.id === "marketing") vendorsConsents[`${vendorName}`] = false;
         }
     );
 }
 // Preferences
 function disablePreferencesCookies() {  
     Object.entries(vendors).forEach(
-        ([key, value]) => {
-            if(value.category.id === "preferences") vendorsConsents[`${key}`] = false;
+        ([vendorName, VendorValues]) => {
+            if(VendorValues.category.id === "preferences") vendorsConsents[`${vendorName}`] = false;
         }
     );
 }
